@@ -1,0 +1,49 @@
+body {
+  /* Set a font size */
+  font-size: 16px;
+  background: #ffd54f;
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.todo-app {
+  display: block;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  font-weight: 600;
+  background: #ffc107;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.notepad{
+  text-align: center;
+}
+.task-Form {
+  background: #fff;
+  margin: 50px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border: 5%;
+}
+.MuiInputBase-root {
+  margin: 5px;
+
+}
+.infos {
+  border-radius: 8px;
+  background: #fff;
+  margin: 50px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+.infoss {
+  border-radius: 8px;
+  background: #fff;
+  margin: 50px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
