@@ -6,9 +6,9 @@ export default class login extends Component {
     constructor(){
         super();
         this.state={
-            
             username:"",
-            password:""
+            password:"",
+            ruta:"/"
         }
         this.login = this.login.bind(this)
     }
@@ -22,13 +22,32 @@ export default class login extends Component {
         
         //getUser(this.state,console.log,console.log);
       }
-      onSubmit = async () => {
-       // const post = await  getUser(this.state,console.log,console.log);
+      onSubmit  () {
+        const user= this.state.username.trim();
+        const password= this.state.password.trim();
+        const userStor=localStorage.getItem("userLogged");
+        const pasStor=localStorage.getItem("passwordLogged");
+        this.setState({ruta:"/todo"})
+        console.log(user+pasStor)
+        if( user===userStor &&  password===pasStor){
+          console.log("holi")
+
+            localStorage.setItem("isLoggedin",true);
+            localStorage.setItem("userLogged",user);
+            localStorage.setItem("passwordLogged",password);
+            this.setState({ruta:"/todo"})
+        }
+   
        
       }
 
     render(){
-      
+      if (localStorage.getItem('isLoggedIn') == undefined) {
+        localStorage.setItem('isLoggedIn', false);
+    }
+    const loged = localStorage.getItem('isLoggedin');
+    
+    console.log(localStorage)
   return (
     <MDBContainer className="cambios">
       <MDBRow>
@@ -84,9 +103,10 @@ export default class login extends Component {
                  
                 >
                  
-                 <Link style={{color:"white"}}to={{pathname:'/todo',
-                state:{user:this.state.username,pass:this.state.password}
-            }}>Sign in </Link>
+                 <li>  <Link 
+                 style={{color:"white"}}
+                 to={{pathname:this.state.ruta}}
+            >Sign in </Link> </li>
                   
                 </MDBBtn>
               </div>

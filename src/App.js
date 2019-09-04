@@ -1,22 +1,28 @@
-import React,{Component} from 'react';
-import TodoApp from './components/todoApp'
-import Login from './components/login/sign'
+import React, { Component } from "react";
+import PropTypes from 'prop-types'
+
+// import "../css/App.css";
 import './css/home.css'
-
-
-export default class App extends Component {
+class App extends Component {
+  static propTypes ={
+    children: PropTypes.object.isRequired
+  }
   render() {
-    return (
-      <div className="app">
-        <header className="kk">
-          <p>
-          To Do:
-          </p>
-         
+ 
+    const {children} = this.props;
 
-        </header>
-        <Login/>
+    //console.log({children})
+    if (localStorage.getItem('isLoggedIn') === undefined) {
+      localStorage.setItem('isLoggedIn', false);
+  }
+    const loged = localStorage.getItem('isLoggedin');
+    
+    return (
+      <div>
+        {children}
       </div>
     );
   }
 }
+
+export default App;

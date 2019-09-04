@@ -1,7 +1,9 @@
 import React,{Component} from 'react'
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBModalFooter } from 'mdbreact';
 
 import TodoList from './todoList'
 import TaskForm from './todoForm'
+import {Link} from 'react-router-dom'
 
 export default class TodoBox extends Component{
     constructor(props){
@@ -28,12 +30,33 @@ export default class TodoBox extends Component{
         this.setState({data: newTasks});    
      
     } 
+    logOut() {
+        localStorage.removeItem("isLoggedin");
+        window.location.reload();
+        console.log(localStorage+"byeeeeeeeeeee");
+      }
     render(){
       
         return(
             <div className="infos">
                 <TaskForm onTasktSubmit={task => this.handleCommentSubmit(task)} />
                 <TodoList data={this.state.data}/>
+                <MDBBtn
+                  type="button"
+                  
+                  color="red darken-3"
+                  rounded
+               
+                  onClick={this.logOut}
+                  className="btn-block z-depth-1a"
+                 
+                >
+                     <Link style={{color:"white"}}to={{pathname:'/'
+                
+            }}>Sign out </Link>
+                
+                  
+                </MDBBtn>
             
             </div>
           
