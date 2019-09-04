@@ -32,8 +32,7 @@ export default class TodoBox extends Component{
     } 
     logOut() {
         localStorage.removeItem("isLoggedin");
-        window.location.reload();
-        console.log(localStorage+"byeeeeeeeeeee");
+        
       }
     render(){
       

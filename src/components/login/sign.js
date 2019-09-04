@@ -27,27 +27,25 @@ export default class login extends Component {
         const password= this.state.password.trim();
         const userStor=localStorage.getItem("userLogged");
         const pasStor=localStorage.getItem("passwordLogged");
-        this.setState({ruta:"/todo"})
-        console.log(user+pasStor)
+        this.setState({ruta:"/"})
+        console.log(userStor+pasStor)
+        console.log(user+password)
+        console.log(this.state.ruta)
         if( user===userStor &&  password===pasStor){
           console.log("holi")
 
             localStorage.setItem("isLoggedin",true);
             localStorage.setItem("userLogged",user);
             localStorage.setItem("passwordLogged",password);
-            this.setState({ruta:"/todo"})
+           this.setState({ruta:"/todo"})
         }
+        console.log(this.state.ruta+"if")
    
        
       }
 
     render(){
-      if (localStorage.getItem('isLoggedIn') == undefined) {
-        localStorage.setItem('isLoggedIn', false);
-    }
-    const loged = localStorage.getItem('isLoggedin');
     
-    console.log(localStorage)
   return (
     <MDBContainer className="cambios">
       <MDBRow>
