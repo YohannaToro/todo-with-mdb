@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Headland+One);
+@import url("https://fonts.googleapis.com/css?family=Cute+Font&display=swap");
+
+/****************** Variables ****************/
+$font-letter:'Cute Font';
+$background-book:#73a0bd;
+/****************** Variables****************/
+
+/** banner text**/
+
+/** banner text**/
+
+/****************** LOGO *******************/
+.logo-text{
+    font-family: $font-letter;
+    font-size: 150%;
+    margin-top: 20%;
+    position: relative;
+
+}
+
+/****************** LOGO *******************/
+
+  .icon {
+    margin-top: 18%;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-left:0;
+    border-top:0;
+  }
+.book {
+    letter-spacing: 2%;
+    width: 28%;
+    height: 22%;
+    background: #73a0bd;
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    margin-left: -48px;
+    top: 18%;
+    margin-top: -52px;
+    font-size: 110%;
+    line-height: 60%;
+    text-align: center;
+    font-family: $font-letter;
+}
+
+.book .pages {
+    width: 97%;
+    height: 19%;
+    position: absolute;
+    top: 1%;
+    right: 0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 2px;
+    overflow: hidden;
+}
+
+.book .pages .page {
+  width:91px;
+  height:91px;
+  position:absolute;
+  border-top-right-radius:6px;
+}
+.book .pages .page:nth-child(odd){
+  background:#eeecdf;
+}
+
+.book .pages .page:nth-child(even){
+  background:#d6d4c8;
+}
+
+.book .pages .page:nth-child(2){ top:2px; }
+.book .pages .page:nth-child(3){ top:4px; }
+.book .pages .page:nth-child(4){ top:6px; }
+.book .pages .page:nth-child(5){ top:8px; }
+.book .pages .page:nth-child(6){ top:10px; }
+.book .pages .page:nth-child(7){ top:12px; }
+.book .pages .page:nth-child(8){ top:14px; }
+.book .pages .page:nth-child(9){ top:16px; }
+.book .pages .page:nth-child(10){ 
+  top:18px;
+background-image: -webkit-linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+background-image: -moz-linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+background-image: -o-linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+background-image: linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+}
+
+.book .pages .page:nth-child(11){ 
+  top:23px;
+background-image: -webkit-linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #73a0bd 4px);
+background-image: -moz-linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #73a0bd 4px);
+background-image: -o-linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #73a0bd 4px);
+background-image: linear-gradient(left, #51768f 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #73a0bd 4px);
+}
+
+.book .top {
+  width:96px;
+  height:28px;
+  background:rgba(255,255,255,0.3);
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  border-bottom-left-radius:6px;
+  position:absolute;
+}
+
+.book .top:after {
+  content:"";
+  width:2px;
+  height:73px;
+  background:#51768f;
+  position:absolute;
+  left:5px;
+  top:31px;
+}
+
+.book .top:before {
+  content:"";
+  width:2px;
+  height:73px;
+  background:#749cb5;
+  position:absolute;
+  left:7px;
+  top:31px;
+}
+
+.bookmark {
+    width: 23%;
+    height: 28px;
+    background: #d64646;
+    position: absolute;
+    top: -1px;
+    left: 0px;
+}
+
+
+

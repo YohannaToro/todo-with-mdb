@@ -1,24 +1,36 @@
 import React,{Component} from 'react'
-
+import {
+    MDBBtn,
+      MDBCardBody,
+      MDBCardTitle,
+      MDBCardText,
+    } from "mdbreact";
 export default class Todo extends Component{
     constructor(props){
         super(props);
     }
     render(){
         var dta=this.props.task.dueDate.toString();
+        console.log(this.props.task.responsible.email)
         return(
 
-          <div className=" co-content">
-            
-              <h2 className="commentAuthor">
-              <p className="card-text">Task: {this.props.task.content}</p>
-              <p className="card-text">Priority: {this.props.task.priority}</p>
-            <p className="card-text">Due date: {dta}</p>
- 
-			</h2>
-              {this.props.children}
-          </div>
-        
+
+              <MDBCardBody>
+                <h4 className="font-weight-bold mb-3">{this.props.task.responsible.name}</h4>
+              <p className="font-weight-bold blue-text">{this.props.task.responsible.email}</p>
+          <MDBCardTitle>{this.props.task.title}</MDBCardTitle>
+          <MDBCardText>
+          Description: {this.props.task.description}
+          </MDBCardText>
+          <MDBCardText>
+          Status: {this.props.task.status}
+          </MDBCardText>
+          <MDBCardText>
+          Due date: {dta}
+          </MDBCardText>
+          <MDBBtn href="#">Done</MDBBtn>
+        </MDBCardBody>
+       
         
         )
     }

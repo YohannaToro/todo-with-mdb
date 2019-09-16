@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBModalFooter } from 'mdbreact';
 import {Link} from 'react-router-dom'
+import '../../css/banner.scss'
 
 export default class login extends Component {
     constructor(){
@@ -25,6 +26,8 @@ export default class login extends Component {
       onSubmit  () {
         const user= this.state.username.trim();
         const password= this.state.password.trim();
+        localStorage.setItem("userLogged",user);
+        localStorage.setItem("passwordLogged",password);
         const userStor=localStorage.getItem("userLogged");
         const pasStor=localStorage.getItem("passwordLogged");
         this.setState({ruta:"/"})
@@ -37,7 +40,7 @@ export default class login extends Component {
             localStorage.setItem("isLoggedin",true);
             localStorage.setItem("userLogged",user);
             localStorage.setItem("passwordLogged",password);
-           this.setState({ruta:"/todo"})
+           this.setState({ruta:"/profile"})
         }
         console.log(this.state.ruta+"if")
    
@@ -47,16 +50,33 @@ export default class login extends Component {
     render(){
     
   return (
-    <MDBContainer className="cambios">
-      <MDBRow>
-        <MDBCol md="6">
+  
+      <MDBRow className="position-login">
+        
           <MDBCard>
             <MDBCardBody className="mx-4">
-              <div className="text-center">
-                <h3 className="dark-grey-text mb-5">
-                  <strong>Sign in</strong>
-                </h3>
+
+    <div class="book" style={{marginBottom:'20%'}}>
+      
+      <div class="pages">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+      <br /><br /><br /><br /><br /><br /> TASK <br /> <br />PLANNER
+      <div class="bookmark"></div>
+    
+
               </div>
+              <div style={{marginTop:'80%'}}>
               <MDBInput
                 label="Username"
                 name="username"
@@ -108,7 +128,7 @@ export default class login extends Component {
                   
                 </MDBBtn>
               </div>
-        
+              </div>
             </MDBCardBody>
             <MDBModalFooter className="mx-5 pt-3 mb-1">
               <p className="font-small grey-text d-flex justify-content-end">
@@ -120,9 +140,9 @@ export default class login extends Component {
               </p>
             </MDBModalFooter>
           </MDBCard>
-        </MDBCol>
+      
       </MDBRow>
-    </MDBContainer>
+    
   );}
 };
 

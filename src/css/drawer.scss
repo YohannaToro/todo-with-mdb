@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Cute+Font&display=swap");
+$font-letter:'Cute Font';
+$back:#e88d72;
+body{
+  background: #e88d72;
+}
+.nav-changes{
+  font-family: $font-letter;
+  background-color: $back;
+  font-size: 250%;
+}
+  .user-profile img {
+
+    width: 81px;
+    border-radius: 50%;
+    margin-right: 24px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .user-details{
+    font-family: $font-letter;
+    font-size: 200%;
+    text-align: center;
+  }
+  .user-details p {
+    font-size: 100%;
+    justify-content: center;
+    text-align: center;
+
+  }

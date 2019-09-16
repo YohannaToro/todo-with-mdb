@@ -10,7 +10,16 @@ export default class TodoBox extends Component{
         super(props);
         this.state={
             list:[],
-           data:[],
+           data:[ {
+               "title":"lab4",
+            "description": "some description text ",
+            "responsible": {
+                "name": "Santiago Carrillo",
+                "email": "sancarbar@gmail"
+            },
+            "status": "ready",
+            "dueDate": 156464645646
+        }],
             userInput:''
         }
     }
@@ -37,10 +46,17 @@ export default class TodoBox extends Component{
     render(){
       
         return(
-            <div className="infos">
-                <TaskForm onTasktSubmit={task => this.handleCommentSubmit(task)} />
-                <TodoList data={this.state.data}/>
-                <MDBBtn
+            <div >
+               <TodoList data={this.state.data}/>
+            </div>
+          
+
+        )
+    }
+}
+/*<TaskForm onTasktSubmit={task => this.handleCommentSubmit(task)} />
+                
+ <MDBBtn
                   type="button"
                   
                   color="red darken-3"
@@ -56,17 +72,5 @@ export default class TodoBox extends Component{
                 
                   
                 </MDBBtn>
-            
-            </div>
-          
 
-        )
-    }
-}
-/*
-    <input 
-                onChange={(e)=> this.changeUSerInput(e.target.value)}
-                value={this.state.userInput} 
-                type="text"/>
-                <button onClick={()=> this.addTask(this.state.userInput)}>Press me</button>
 */
