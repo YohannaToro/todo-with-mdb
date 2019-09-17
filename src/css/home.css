@@ -1,10 +1,17 @@
 body {
   /* Set a font size */
   font-size: 16px;
-  background: #e88d72;
+  background: url("https://www.hogarmania.com/archivos/201708/marmol-668x400x80xX.jpg") no-repeat center center fixed;
   min-width: 230px;
   max-width: 550px;
   margin: 0 auto;
+}
+html {
+ 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .position-login{
   justify-content: center;

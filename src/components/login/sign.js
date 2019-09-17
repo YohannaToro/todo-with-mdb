@@ -56,23 +56,23 @@ export default class login extends Component {
           <MDBCard>
             <MDBCardBody className="mx-4">
 
-    <div class="book" style={{marginBottom:'20%'}}>
+    <div className="book" style={{marginBottom:'20%'}}>
       
-      <div class="pages">
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
+      <div className="pages">
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
+        <div className="page"></div>
       </div>
       <br /><br /><br /><br /><br /><br /> TASK <br /> <br />PLANNER
-      <div class="bookmark"></div>
+      <div className="bookmark"></div>
     
 
               </div>
@@ -102,9 +102,9 @@ export default class login extends Component {
                 validate
                 containerClass="mb-0"
               />
-              <p className="font-small red-text d-flex justify-content-end pb-3">
+              <p className="font-small grey-text d-flex justify-content-end pb-3">
                 Forgot
-                <a href="#!" className="red-text ml-1">
+                <a href="#!" className="grey-text ml-1">
 
                   Password?
                 </a>
@@ -112,8 +112,8 @@ export default class login extends Component {
               <div className="text-center mb-3">
                 <MDBBtn
                   type="button"
-                  
-                  color="red darken-3"
+             
+                  color="black darken-3"
                   rounded
                
                   onClick={() => this.onSubmit()}
@@ -133,7 +133,7 @@ export default class login extends Component {
             <MDBModalFooter className="mx-5 pt-3 mb-1">
               <p className="font-small grey-text d-flex justify-content-end">
                 Not a member?
-                <a href="/singup" className="red-text ml-1">
+                <a href="/singup" className="black-text ml-1">
 
                   Sign Up
                 </a>

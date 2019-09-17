@@ -28,7 +28,6 @@ export default class Todo extends Component{
           <MDBCardText>
           Due date: {dta}
           </MDBCardText>
-          <MDBBtn href="#">Done</MDBBtn>
         </MDBCardBody>
        
         

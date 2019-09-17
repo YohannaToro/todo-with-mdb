@@ -3,9 +3,10 @@ import Todo from "./todo";
 import {
 MDBBtn,
   MDBCard,
-  MDBCol
+  MDBCol,
+  MDBRow
 } from "mdbreact";
-
+import '../css/todo.scss'
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -13,17 +14,20 @@ export default class TodoList extends Component {
 
   render() {
     let taskNodes = this.props.data.map((k, i) => {
-      return <Todo key={i} task={k} />;
+      return (
+        <MDBCard className="modal-style" style={{ width: "19rem",marginBottom:'5%' }}>
+      <Todo key={i} task={k} /></MDBCard>);
     });
 
     return (
 
         
-        <MDBCol>
-      <MDBCard style={{ width: "12rem" }}>
+        <MDBRow style={{justifyContent:'center'}}>
+          
+      
         {taskNodes}
-      </MDBCard>
-    </MDBCol>
+      
+    </MDBRow>
 
     );
   }
