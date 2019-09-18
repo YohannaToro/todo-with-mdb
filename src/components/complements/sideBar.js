@@ -11,6 +11,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import '../../css/drawer.scss'
 import {Link} from 'react-router-dom'
+import filter from './filter'
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -50,12 +51,12 @@ export default function TemporaryDrawer() {
     </div>
       <Divider />
       <List>
-          {['new task', 'logout'].map((text, index) => (
+          {['taskFilter', 'logout'].map((text, index) => (
             <ListItem button key={text}component={Link} to="/">
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon to="/"/> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} 
-
-              />
+              <ListItemIcon>{index % 2 === 0 ? <InboxIcon to="/"/> : <MailIcon />}
+              
+              </ListItemIcon>
+              <ListItemText primary={text}/>
             </ListItem>
           ))}
         </List>

@@ -6,12 +6,12 @@ import TodoList from './todoList'
 import TaskForm from './todoForm'
 import {Link} from 'react-router-dom'
 import '../css/todo.scss'
-
+import Filter from './complements/filter'
 export default class TodoBox extends Component{
     constructor(props){
         super(props);
         this.state={
-            show:false,
+            show:false,fil:false,
             list:[],
            data:[ {
                "title":"lab4",
@@ -42,7 +42,7 @@ export default class TodoBox extends Component{
         this.setState({data: newTasks});    
      
     } 
-    logOut() {
+    filterOut() {
         localStorage.removeItem("isLoggedin");
         
       }
@@ -52,15 +52,29 @@ export default class TodoBox extends Component{
       
         const handleClose = () => this.setState({show:false});
         const handleShow = () => this.setState({show:true});
-      
+        const handleFil=()=>this.setState({fil:true});
+        const handleFilClose=()=>this.setState({fil:false});
         return(
             <div >
-                
+           
+                    <Button  className="bt" style={{backgroundColor:'black',color:'white'}} onClick={handleFil}>
+                        TASK FILTER
+                    </Button>
+            
                <TodoList data={this.state.data}/>
                <Button className="bt" style={{backgroundColor:'black',color:'white'}} onClick={handleShow}>
      New Task
       </Button>
 
+            <Modal fil={this.state.fil} onHide={handleFilClose} className="center">
+            <Modal.Header closeButton className="back">
+          <Modal.Title>ADD NEW TASK</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="back">
+        <TaskForm onTasktSubmit={task => this.handleCommentSubmit(task)} />
+
+        </Modal.Body>
+            </Modal>
       <Modal show={this.state.show} onHide={handleClose} className="center">
         <Modal.Header closeButton className="back">
           <Modal.Title>ADD NEW TASK</Modal.Title>
