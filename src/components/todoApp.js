@@ -57,9 +57,6 @@ export default class TodoBox extends Component{
         return(
             <div >
            
-                    <Button  className="bt" style={{backgroundColor:'black',color:'white'}} onClick={handleFil}>
-                        TASK FILTER
-                    </Button>
             
                <TodoList data={this.state.data}/>
                <Button className="bt" style={{backgroundColor:'black',color:'white'}} onClick={handleShow}>
