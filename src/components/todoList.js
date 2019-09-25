@@ -15,8 +15,9 @@ export default class TodoList extends Component {
   render() {
     let taskNodes = this.props.data.map((k, i) => {
       return (
-        <MDBCard className="modal-style" style={{ width: "19rem",marginBottom:'5%' }}>
-      <Todo key={i} task={k} /></MDBCard>);
+        <MDBCol>
+        <MDBCard className="modal-style" style={{ width: "19rem",height:"12rem",marginBottom:'5%' }}>
+      <Todo key={i} task={k} /></MDBCard></MDBCol>);
     });
 
     return (

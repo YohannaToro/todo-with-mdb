@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import MailIcon from '@material-ui/icons/VerifiedUser';
 import '../../css/drawer.scss'
 import {Link} from 'react-router-dom'
 import filter from './filter'
@@ -59,6 +59,11 @@ export default function TemporaryDrawer() {
               <ListItemText primary={text}/>
             </ListItem>
           ))}
+          <ListItem button component={Link} to="/settings/profile">
+            <ListItemIcon ><MailIcon></MailIcon></ListItemIcon>
+            <ListItemText>edit profile</ListItemText>
+
+          </ListItem>
         </List>
     </div>
   );

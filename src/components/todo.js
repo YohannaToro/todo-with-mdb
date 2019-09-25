@@ -15,17 +15,17 @@ export default class Todo extends Component{
         return(
 
 
-              <MDBCardBody>
-                <h4 className="font-weight-bold mb-3">{this.props.task.responsible.name}</h4>
-              <p className="font-weight-bold blue-text">{this.props.task.responsible.email}</p>
-          <MDBCardTitle>{this.props.task.title}</MDBCardTitle>
-          <MDBCardText>
+              <MDBCardBody >
+                <h4 className="font-weight-bold mb-3" style={{fontSize:"90%"}} >{this.props.task.responsible.name}</h4>
+              <p className="font-weight-bold blue-text" style={{fontSize:"90%"}}>{this.props.task.responsible.email}</p>
+          <MDBCardTitle style={{fontSize:"90%"}}>{this.props.task.title}</MDBCardTitle>
+          <MDBCardText style={{fontSize:"70%"}}>
           Description: {this.props.task.description}
           </MDBCardText>
-          <MDBCardText>
+          <MDBCardText style={{fontSize:"70%"}}>
           Status: {this.props.task.status}
           </MDBCardText>
-          <MDBCardText>
+          <MDBCardText style={{fontSize:"70%"}}>
           Due date: {dta}
           </MDBCardText>
         </MDBCardBody>
