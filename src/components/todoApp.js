@@ -14,7 +14,7 @@ export default class TodoBox extends Component{
         super(props);
         this.state={
             show:false,fil:false,value:"",
-            listfilter:[],fil:false,update:false,
+            listfilter:[],fil:false,update:false,prueba:[],
            data:[ {
                "title":"lab4",
             "description": "some description text ",
@@ -28,7 +28,15 @@ export default class TodoBox extends Component{
             userInput:''
         }
     }
+    componentDidMount() {
+      console.log("holaaaaaaaaaaaaaaaaaaaaaaaa")
+      fetch('http://localhost:8080/users')
+      .then(response => response.json())
+      .then(json => console.log(json))
+    }
 
+
+    
     handleChange = event => {
         const { value } = event.target;
         this.setState({ value });
