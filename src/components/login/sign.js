@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBModalFooter } from 'mdbreact';
 import {Link} from 'react-router-dom'
 import '../../css/banner.scss'
-
+import axios from 'axios'
 export default class login extends Component {
     constructor(){
         super();
@@ -13,7 +13,22 @@ export default class login extends Component {
         }
         this.login = this.login.bind(this)
     }
+    componentDidMount(){
+      axios.post('http://localhost:8080/users/login', {
+        id:"yowis",
+        name: 'yohanna',
+        description:"",
+        password: '123'
+    })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
+
+    }
     onChange = (e) => {
       this.setState({
         [e.target.name]: e.target.value,
