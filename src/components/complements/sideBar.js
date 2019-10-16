@@ -7,11 +7,9 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/VerifiedUser';
 import '../../css/drawer.scss'
 import {Link} from 'react-router-dom'
-import filter from './filter'
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -34,7 +32,17 @@ export default function TemporaryDrawer() {
 
     setState({ ...state, [side]: open });
   };
-
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+    localStorage.setItem("isLoggedin",false);
+    console.log(localStorage.getItem("isLoggedin"))
+  }
+  const handle=()=>{
+    console.log('The link was clicked jeje');
+    localStorage.setItem("isLoggedin",false);
+    console.log(localStorage.getItem("isLoggedin"))
+  }
   const sideList = side => (
     <div
       className={classes.list}
@@ -51,14 +59,12 @@ export default function TemporaryDrawer() {
     </div>
       <Divider />
       <List>
-          {['taskFilter', 'logout'].map((text, index) => (
-            <ListItem button key={text}component={Link} to="/">
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon to="/"/> : <MailIcon />}
-              
-              </ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-          ))}
+
+            <ListItem button component={Link} to="/"   onClick={handle} >
+            <ListItemIcon ><MailIcon></MailIcon></ListItemIcon>
+            <ListItemText>logout</ListItemText>
+
+          </ListItem>
           <ListItem button component={Link} to="/settings/profile">
             <ListItemIcon ><MailIcon></MailIcon></ListItemIcon>
             <ListItemText>edit profile</ListItemText>

@@ -39,27 +39,30 @@ export default class login extends Component {
         //getUser(this.state,console.log,console.log);
       }
       onSubmit  () {
+        
         const user= this.state.username.trim();
         const password= this.state.password.trim();
-        localStorage.setItem("userLogged",user);
-        localStorage.setItem("passwordLogged",password);
-        const userStor=localStorage.getItem("userLogged");
-        const pasStor=localStorage.getItem("passwordLogged");
-        this.setState({ruta:"/"})
-        console.log(userStor+pasStor)
-        console.log(user+password)
         console.log(this.state.ruta)
-        if( user===userStor &&  password===pasStor){
-          console.log("holi")
-
-            localStorage.setItem("isLoggedin",true);
-            localStorage.setItem("userLogged",user);
-            localStorage.setItem("passwordLogged",password);
-           this.setState({ruta:"/profile"})
-        }
-        console.log(this.state.ruta+"if")
-   
-       
+        axios.post('http://localhost:8080/users/login', {
+          id:user,
+          name: 'yohanna',
+          description:"",
+          password: password
+      })
+          .then(function (response) {
+            console.log("holiiiiiiiii");
+              console.log(response.data);
+              localStorage.setItem("token",response.data.accessToken);
+              localStorage.setItem("isLoggedin",true);
+              
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+          if(localStorage.getItem("isLoggedin")){
+            console.log("maybe funco")
+            this.setState({ruta:"/profile"})
+          }
       }
 
     render(){

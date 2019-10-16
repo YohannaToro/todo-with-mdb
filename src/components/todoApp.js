@@ -30,7 +30,7 @@ export default class TodoBox extends Component{
     }
     componentDidMount() {
       console.log("holaaaaaaaaaaaaaaaaaaaaaaaa")
-      fetch('http://localhost:8080/users')
+      fetch('http://localhost:8080/boards/1')
       .then(response => response.json())
       .then(json => console.log(json))
     }

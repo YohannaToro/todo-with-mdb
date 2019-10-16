@@ -2,6 +2,7 @@ import React,{Component} from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBModalFooter } from 'mdbreact';
 import {Link} from 'react-router-dom'
 import '../../css/banner.scss'
+import axios from 'axios'
 
 export default class login extends Component {
     constructor(){
@@ -10,7 +11,7 @@ export default class login extends Component {
             username:"",
             email:"",
             password:"",
-            ruta:"/"
+            ruta:"/singup"
         }
         this.login = this.login.bind(this)
     }
@@ -20,22 +21,29 @@ export default class login extends Component {
         [e.target.name]: e.target.value,
       });
     }
-    login(){
-        
-        //getUser(this.state,console.log,console.log);
-      }
+
       onSubmit  () {
         const user= this.state.username.trim();
         const password= this.state.password.trim();
         const email= this.state.email.trim();
-        localStorage.setItem("userLogged",user);
-        localStorage.setItem("passwordLogged",password);
-        
-        if( !user &&  !password && !email){
-
-           this.setState({username:user,
-            email:email,password:password,
-            ruta:"/profile"})
+        if( user &&  password && email){
+          axios.post('http://localhost:8080/users/signup', {
+          id:user,
+          name: email,
+          description:"",
+          password: password
+      })
+          .then(function (response) {
+              localStorage.setItem("token",response.data.accessToken);
+             localStorage.setItem("isRegister",true);
+              
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+          if(localStorage.getItem("isRegister")){
+            this.setState({ruta:"/"})
+          }
         }
       }
 
@@ -131,7 +139,7 @@ export default class login extends Component {
             <MDBModalFooter className="mx-5 pt-3 mb-1">
               <p className="font-small grey-text d-flex justify-content-end">
                  a member?
-                <a href="/singup" className="black-text ml-1">
+                <a href="/" className="black-text ml-1">
 
                   Sign in
                 </a>
