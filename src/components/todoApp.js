@@ -30,15 +30,19 @@ export default class TodoBox extends Component {
       fil: false,
       update: false,
       prueba: [],
+      imagenes: [{ img: null }],
       data: [
         {
-          title: "lab4",
+          name: "lab4",
+          id: "1",
           description: "some description text ",
+          updateDate: "",
+          fileURl: "",
           responsible: {
             name: "Santiago Carrillo",
             email: "sancarbar@gmail"
           },
-          status: "ready",
+          isDone: "ready",
           dueDate: 156464645646
         }
       ],
@@ -46,10 +50,43 @@ export default class TodoBox extends Component {
     };
   }
   componentDidMount() {
-    console.log("holaaaaaaaaaaaaaaaaaaaaaaaa");
-    fetch("http://localhost:8080/boards/1")
-      .then(response => response.json())
-      .then(json => console.log(json));
+    var ima=[]
+    axios.get("http://localhost:8080/boards/tasks").then(response => {
+      //this.setState({data:response.data})
+      var data = [];
+      
+      var i;
+      for (i = 0; i < response.data.length; i++) {
+        var item = response.data[i];
+        ima.push(item.fileURl)
+        data.push({
+          name: item.name,
+          id: item.id,
+          description: item.description,
+          updateDate: item.updateDate,
+          fileURl: item.fileURl,
+          responsible: {
+            name: "Yohanna Toro",
+            email: "yowis@hotmail.com"
+          },
+          isDone: item.isDone,
+          dueDate: item.dueDate
+        });
+      }
+      this.setState({ data: data });
+    });
+    var path = this.state;
+
+    var i;
+    var image = [];
+    for (i = 0; i < ima.length; i++) {
+      var item = ima[i]
+      console.log(item+"url")
+      axios
+        .get("http://localhost:8080/boards/files/" + item)
+        .then(response => image.push({ img: response.config.url }));
+    }
+    this.setState({ imagenes: image });
   }
 
   handleChange = event => {
@@ -69,7 +106,7 @@ export default class TodoBox extends Component {
     var newTasks = tasks.concat([task]);
     this.setState({ data: newTasks });
     axios
-      .post("localhost:8080/boards/tasks/addTask", task, {
+      .post("http://localhost:8080/boards/tasks/addTask", task, {
         // receive two parameter endpoint url ,form data
       })
       .then(res => {
@@ -78,8 +115,6 @@ export default class TodoBox extends Component {
       });
   }
   handleFilterSubmit(filter) {
-    console.log("updatedList");
-    console.log(filter);
     this.setState({ update: true });
     this.setState({ list: filter });
   }
@@ -104,7 +139,7 @@ export default class TodoBox extends Component {
         {isLoggedIn ? (
           <TodoList data={this.state.list} onClick={handleUpdate} />
         ) : (
-          <TodoList data={this.state.data} />
+          <TodoList data={this.state.data} imagenes={this.state.imagenes} />
         )}
 
         <Button

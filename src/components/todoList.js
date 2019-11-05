@@ -13,10 +13,14 @@ export default class TodoList extends Component {
   }
 
   render() {
+    var imagenes=this.props.imagenes;
+    console.log("hola coronamos")
+    console.log(imagenes)
     let taskNodes = this.props.data.map((k, i) => {
+
       return (
         <MDBCol>
-        <MDBCard className="modal-style" style={{ width: "19rem",height:"12rem",marginBottom:'5%' }}>
+        <MDBCard className="modal-style" style={{marginBottom:'5%' }}>
       <Todo key={i} task={k} /></MDBCard></MDBCol>);
     });
 

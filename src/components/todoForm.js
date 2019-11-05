@@ -19,16 +19,15 @@ export default class taskForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: "",
-      description: "",
-      title: "",
+      isDone: "",
+      description: "",updateDate:new Date().toISOString().slice(0, 10),
       name: "",
       responsible: {
         email: "",
         userName: ""
       },
       dueDate: new Date(),
-      selectedFile: null,fileName:""
+      selectedFile: null,fileUrl:""
     };
   }
 
@@ -45,7 +44,7 @@ export default class taskForm extends Component {
   onChangeHandler = event => {
     console.log(event.target.files[0]);
     this.setState({
-      selectedFile: event.target.files[0],fileName:event.target.files[0].name
+      selectedFile: event.target.files[0],fileUrl:event.target.files[0].name
     });
   };
 
@@ -69,7 +68,7 @@ export default class taskForm extends Component {
     var resName = this.state.name.trim();
     var resEmail = this.state.responsible.email.trim();
     var d = this.state.dueDate;
-    var fileNam=this.state.fileName;
+    var fileNam=this.state.fileUrl;
     console.log(d);
 
     if (!text || !prior) {
@@ -83,14 +82,15 @@ export default class taskForm extends Component {
         console.log(res.statusText)
       })
     this.props.onTasktSubmit({
-      title: text,
-      startDate: prior,
+      name: text,
+      updateDate: this.state.updateDate,
       dueDate: d,
       description: des,
+      isDone:prior,
       responsible: {
         name: resName,
         email: resEmail
-      },fileName:fileNam
+      },fileUrl:fileNam
     });
     this.setState({
       name: "",
@@ -131,7 +131,7 @@ export default class taskForm extends Component {
             <MDBInput
               className="input-pririty"
               type="text"
-              label="Status"
+              label="Description"
               icon="bookmark"
               placeholder="Description"
               value={this.state.description}
